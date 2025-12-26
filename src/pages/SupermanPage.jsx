@@ -2,6 +2,15 @@ import React from "react";
 import "./SupermanPage.css";
 
 const SupermanPage = () => {
+  useEffect(() => {
+    document.title = "Superman - The Man of Steel";
+  }, []);
+  useEffect(() => {
+    const metaOgImage = document.querySelector('meta[property="og:image"]');
+    if (metaOgImage) {
+      metaOgImage.setAttribute("content", "/superman.png");
+    }
+  }, []);
   return (
     <div className="superman-page">
       <div className="hero-section superman-hero">

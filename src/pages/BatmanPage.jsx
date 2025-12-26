@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./BatmanPage.css";
 
 const BatmanPage = () => {
+  useEffect(() => {
+    document.title = "Batman - The Dark Knight";
+  }, []);
+  useEffect(() => {
+    const metaOgImage = document.querySelector('meta[property="og:image"]');
+    if (metaOgImage) {
+      metaOgImage.setAttribute("content", "/batman.jpg");
+    }
+  }, []);
   return (
     <div className="batman-page">
       <div className="hero-section batman-hero">
