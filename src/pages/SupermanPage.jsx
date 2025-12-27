@@ -3,10 +3,10 @@ import "./SupermanPage.css";
 
 const SupermanPage = () => {
   useEffect(() => {
-    document.title = "Superman - The Man of Steel";
+    document.title = "Batman - The Dark Knight";
   }, []);
   useEffect(() => {
-    const metaOgImage = document.querySelector('meta[property="og:image"]');
+    const metaOgImage = document.getElementById("og:image");
     if (metaOgImage) {
       metaOgImage.setAttribute("content", "/superman.png");
     }
