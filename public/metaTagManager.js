@@ -22,7 +22,7 @@
       ogTitle: "Batman - The Dark Knight",
       ogDescription:
         "The Dark Knight of Gotham City - Master detective with genius intellect and advanced technology fighting crime in the shadows.",
-      ogImage: "/batman.png",
+      ogImage: "/superman.png",
       keywords:
         "batman, dark knight, gotham, bruce wayne, detective, superhero, DC comics",
     },
