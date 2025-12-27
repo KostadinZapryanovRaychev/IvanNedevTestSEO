@@ -11,7 +11,7 @@
       ogTitle: "Batman vs Superman - The Ultimate Comparison",
       ogDescription:
         "Discover the differences between Batman and Superman - two legendary heroes with different approaches to justice.",
-      ogImage: "/comparison.png",
+      ogImage: "/superman.png",
       keywords:
         "batman, superman, superhero, comparison, DC comics, dark knight, man of steel",
     },
