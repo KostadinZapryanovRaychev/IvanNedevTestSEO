@@ -25,7 +25,7 @@ const SupermanPage = () => {
         <meta
           key="og:image"
           property="og:image"
-          content={`${window.location.origin}/superman.png`}
+          content={`${window.location.origin}/superman.png?superman=1`}
         />
         <meta key="og:type" property="og:type" content="website" />
         <meta key="og:url" property="og:url" content={window.location.href} />

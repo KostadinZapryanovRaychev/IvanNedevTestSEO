@@ -36,7 +36,7 @@ const HomePage = () => {
         <meta
           key="og:image"
           property="og:image"
-          content={`${window.location.origin}/batman.jpg`}
+          content={`${window.location.origin}/superman.png?home=1`}
         />
         <meta key="og:type" property="og:type" content="website" />
         <meta key="og:url" property="og:url" content={window.location.href} />
