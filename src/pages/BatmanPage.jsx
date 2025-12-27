@@ -6,9 +6,9 @@ const BatmanPage = () => {
     document.title = "Batman - The Dark Knight";
   }, []);
   useEffect(() => {
-    const metaOgImage = document.querySelector('meta[property="og:image"]');
+    const metaOgImage = document.getElementById("og:image");
     if (metaOgImage) {
-      metaOgImage.setAttribute("content", "/batman.jpg");
+      metaOgImage.setAttribute("content", "/superman.png");
     }
   }, []);
   return (
