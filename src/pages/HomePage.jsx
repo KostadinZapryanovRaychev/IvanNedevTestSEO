@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import "./HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Remove any existing og:image tags
+    const existingOgImages = document.querySelectorAll(
+      'meta[property="og:image"]'
+    );
+    existingOgImages.forEach((tag) => tag.remove());
+
+    // Create new og:image tag
+    const ogImageTag = document.createElement("meta");
+    ogImageTag.setAttribute("property", "og:image");
+    ogImageTag.setAttribute(
+      "content",
+      `${window.location.origin}/superman.png`
+    );
+    document.head.appendChild(ogImageTag);
+
+    // Cleanup function
+    return () => {
+      const ogImages = document.querySelectorAll('meta[property="og:image"]');
+      ogImages.forEach((tag) => tag.remove());
+    };
+  }, []);
 
   const navigateToBatman = () => {
     navigate("/batman");
@@ -32,11 +55,6 @@ const HomePage = () => {
           key="og:description"
           property="og:description"
           content="Two legendary heroes, two different approaches. Explore the strengths, abilities, and characteristics of DC's greatest champions."
-        />
-        <meta
-          key="og:image"
-          property="og:image"
-          content={`${window.location.origin}/superman.png?home=1`}
         />
         <meta key="og:type" property="og:type" content="website" />
         <meta key="og:url" property="og:url" content={window.location.href} />

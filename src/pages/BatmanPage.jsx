@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import "./BatmanPage.css";
 
 const BatmanPage = () => {
+  useEffect(() => {
+    // Remove any existing og:image tags
+    const existingOgImages = document.querySelectorAll(
+      'meta[property="og:image"]'
+    );
+    existingOgImages.forEach((tag) => tag.remove());
+
+    // Create new og:image tag
+    const ogImageTag = document.createElement("meta");
+    ogImageTag.setAttribute("property", "og:image");
+    ogImageTag.setAttribute("content", `${window.location.origin}/batman.jpg`);
+    document.head.appendChild(ogImageTag);
+
+    // Cleanup function
+    return () => {
+      const ogImages = document.querySelectorAll('meta[property="og:image"]');
+      ogImages.forEach((tag) => tag.remove());
+    };
+  }, []);
   return (
     <>
       <Helmet>
@@ -21,11 +40,6 @@ const BatmanPage = () => {
           key="og:description"
           property="og:description"
           content="The Dark Knight of Gotham City - Master detective with genius intellect and advanced technology."
-        />
-        <meta
-          key="og:image"
-          property="og:image"
-          content={`${window.location.origin}/batman.jpg?batman=1`}
         />
         <meta key="og:type" property="og:type" content="website" />
         <meta key="og:url" property="og:url" content={window.location.href} />

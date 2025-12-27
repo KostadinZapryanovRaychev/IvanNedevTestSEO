@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import "./SupermanPage.css";
 
 const SupermanPage = () => {
+  useEffect(() => {
+    // Remove any existing og:image tags
+    const existingOgImages = document.querySelectorAll(
+      'meta[property="og:image"]'
+    );
+    existingOgImages.forEach((tag) => tag.remove());
+
+    // Create new og:image tag
+    const ogImageTag = document.createElement("meta");
+    ogImageTag.setAttribute("property", "og:image");
+    ogImageTag.setAttribute(
+      "content",
+      `${window.location.origin}/superman.png`
+    );
+    document.head.appendChild(ogImageTag);
+
+    // Cleanup function
+    return () => {
+      const ogImages = document.querySelectorAll('meta[property="og:image"]');
+      ogImages.forEach((tag) => tag.remove());
+    };
+  }, []);
   return (
     <>
       <Helmet>
@@ -21,11 +43,6 @@ const SupermanPage = () => {
           key="og:description"
           property="og:description"
           content="The Last Son of Krypton - Superman with incredible powers including flight, super strength, and invulnerability."
-        />
-        <meta
-          key="og:image"
-          property="og:image"
-          content={`${window.location.origin}/superman.png?superman=1`}
         />
         <meta key="og:type" property="og:type" content="website" />
         <meta key="og:url" property="og:url" content={window.location.href} />
