@@ -1,51 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import "./SupermanPage.css";
 
 const SupermanPage = () => {
-  useEffect(() => {
-    // Remove any existing og:image tags
-    const existingOgImages = document.querySelectorAll(
-      'meta[property="og:image"]'
-    );
-    existingOgImages.forEach((tag) => tag.remove());
-
-    // Create new og:image tag
-    const ogImageTag = document.createElement("meta");
-    ogImageTag.setAttribute("property", "og:image");
-    ogImageTag.setAttribute(
-      "content",
-      `${window.location.origin}/superman.png`
-    );
-    document.head.appendChild(ogImageTag);
-
-    // Cleanup function
-    return () => {
-      const ogImages = document.querySelectorAll('meta[property="og:image"]');
-      ogImages.forEach((tag) => tag.remove());
-    };
-  }, []);
   return (
     <>
       <Helmet>
         <title>Superman - The Man of Steel</title>
         <meta
-          key="description"
           name="description"
           content="Explore Superman's world - The Man of Steel with incredible powers including flight, super strength, and heat vision. Last Son of Krypton."
         />
+        <meta property="og:title" content="Superman - The Man of Steel" />
         <meta
-          key="og:title"
-          property="og:title"
-          content="Superman - The Man of Steel"
-        />
-        <meta
-          key="og:description"
           property="og:description"
           content="The Last Son of Krypton - Superman with incredible powers including flight, super strength, and invulnerability."
         />
-        <meta key="og:type" property="og:type" content="website" />
-        <meta key="og:url" property="og:url" content={window.location.href} />
+        <meta property="og:image" content="/superman.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={window.location.href} />
       </Helmet>
 
       <div className="superman-page">

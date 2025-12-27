@@ -1,33 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import "./HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Remove any existing og:image tags
-    const existingOgImages = document.querySelectorAll(
-      'meta[property="og:image"]'
-    );
-    existingOgImages.forEach((tag) => tag.remove());
-
-    // Create new og:image tag
-    const ogImageTag = document.createElement("meta");
-    ogImageTag.setAttribute("property", "og:image");
-    ogImageTag.setAttribute(
-      "content",
-      `${window.location.origin}/superman.png`
-    );
-    document.head.appendChild(ogImageTag);
-
-    // Cleanup function
-    return () => {
-      const ogImages = document.querySelectorAll('meta[property="og:image"]');
-      ogImages.forEach((tag) => tag.remove());
-    };
-  }, []);
 
   const navigateToBatman = () => {
     navigate("/batman");
@@ -42,22 +19,20 @@ const HomePage = () => {
       <Helmet>
         <title>Batman vs Superman - Ultimate Superhero Comparison</title>
         <meta
-          key="description"
           name="description"
           content="Compare Batman and Superman - Two legendary DC heroes with different approaches. Explore their strengths, abilities, and characteristics."
         />
         <meta
-          key="og:title"
           property="og:title"
           content="Batman vs Superman - Ultimate Superhero Comparison"
         />
         <meta
-          key="og:description"
           property="og:description"
           content="Two legendary heroes, two different approaches. Explore the strengths, abilities, and characteristics of DC's greatest champions."
         />
-        <meta key="og:type" property="og:type" content="website" />
-        <meta key="og:url" property="og:url" content={window.location.href} />
+        <meta property="og:image" content="/superman.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={window.location.href} />
       </Helmet>
 
       <div className="home-page">
