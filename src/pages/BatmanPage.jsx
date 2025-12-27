@@ -8,17 +8,27 @@ const BatmanPage = () => {
       <Helmet>
         <title>Batman - The Dark Knight</title>
         <meta
+          key="description"
           name="description"
           content="Explore Batman's world - The Dark Knight of Gotham City with genius intellect and advanced technology. Master detective with peak human condition."
         />
-        <meta property="og:title" content="Batman - The Dark Knight" />
         <meta
+          key="og:title"
+          property="og:title"
+          content="Batman - The Dark Knight"
+        />
+        <meta
+          key="og:description"
           property="og:description"
           content="The Dark Knight of Gotham City - Master detective with genius intellect and advanced technology."
         />
-        <meta property="og:image" content="/batman.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={window.location.href} />
+        <meta
+          key="og:image"
+          property="og:image"
+          content={`${window.location.origin}/batman.jpg`}
+        />
+        <meta key="og:type" property="og:type" content="website" />
+        <meta key="og:url" property="og:url" content={window.location.href} />
       </Helmet>
 
       <div className="batman-page">

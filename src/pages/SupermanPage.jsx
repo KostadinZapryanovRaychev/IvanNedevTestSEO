@@ -8,17 +8,27 @@ const SupermanPage = () => {
       <Helmet>
         <title>Superman - The Man of Steel</title>
         <meta
+          key="description"
           name="description"
           content="Explore Superman's world - The Man of Steel with incredible powers including flight, super strength, and heat vision. Last Son of Krypton."
         />
-        <meta property="og:title" content="Superman - The Man of Steel" />
         <meta
+          key="og:title"
+          property="og:title"
+          content="Superman - The Man of Steel"
+        />
+        <meta
+          key="og:description"
           property="og:description"
           content="The Last Son of Krypton - Superman with incredible powers including flight, super strength, and invulnerability."
         />
-        <meta property="og:image" content="/superman.png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={window.location.href} />
+        <meta
+          key="og:image"
+          property="og:image"
+          content={`${window.location.origin}/superman.png`}
+        />
+        <meta key="og:type" property="og:type" content="website" />
+        <meta key="og:url" property="og:url" content={window.location.href} />
       </Helmet>
 
       <div className="superman-page">

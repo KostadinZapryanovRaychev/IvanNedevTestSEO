@@ -19,20 +19,27 @@ const HomePage = () => {
       <Helmet>
         <title>Batman vs Superman - Ultimate Superhero Comparison</title>
         <meta
+          key="description"
           name="description"
           content="Compare Batman and Superman - Two legendary DC heroes with different approaches. Explore their strengths, abilities, and characteristics."
         />
         <meta
+          key="og:title"
           property="og:title"
           content="Batman vs Superman - Ultimate Superhero Comparison"
         />
         <meta
+          key="og:description"
           property="og:description"
           content="Two legendary heroes, two different approaches. Explore the strengths, abilities, and characteristics of DC's greatest champions."
         />
-        <meta property="og:image" content="/batman-vs-superman.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={window.location.href} />
+        <meta
+          key="og:image"
+          property="og:image"
+          content={`${window.location.origin}/batman.jpg`}
+        />
+        <meta key="og:type" property="og:type" content="website" />
+        <meta key="og:url" property="og:url" content={window.location.href} />
       </Helmet>
 
       <div className="home-page">
